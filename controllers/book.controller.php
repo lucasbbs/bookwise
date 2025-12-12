@@ -1,11 +1,11 @@
 <?php
 
-require 'data.php';
+$book =  Book::get($_GET['id']);
 
-$id = $_REQUEST['id'];
+$votes = $database
 
-$filtrado = array_filter($livros, fn($l) =>  $l['id'] == $id);
+    ->query("select * from votes where book_id = :id", Vote::class, ['id' => $_GET['id']])
 
-$livro = array_pop($filtrado);
+    ->fetchAll();
 
-view('livro', compact('livro'));
+view('book', compact('book', 'votes'));

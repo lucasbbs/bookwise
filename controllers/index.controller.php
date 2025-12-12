@@ -1,5 +1,8 @@
 <?php
 
-require 'data.php';
 
-view('index', compact('livros'));
+$search = $_REQUEST['search'] ?? '';
+
+$books = Book::all($search);
+
+view('index', compact('books'));

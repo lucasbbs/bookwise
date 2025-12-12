@@ -1,0 +1,1 @@
+<h1 class="text-lg font-bold mt-2">User not authorized to access this page.</h1>

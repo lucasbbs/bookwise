@@ -1,8 +1,4 @@
-<?php
-
-require_once './data.php';
-
-?>
+<?php ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +17,34 @@ require_once './data.php';
       <div class="font-bold text-xl tracking-wide">Book Wise</div>
       <ul class="flex space-x-4 font-bold">
         <li><a href="/" class="text-lime-500">Explore</a></li>
-        <li><a href="/my-books" class="hover:underline">My Books</a></li>
+        <?php if (auth()): ?>
+          <li><a href="/my-books" class="hover:underline">My Books</a></li>
+        <?php endif; ?>
       </ul>
       <ul>
-        <li><a href="/login" class="hover:underline">Login</a></li>
+        <?php if (auth()): ?>
+
+          <li><a href="/logout">Oi, <?= auth()->name ?></a></li>
+
+        <?php else: ?>
+
+          <li><a href="/login" class="hover:underline">Login</a></li>
+
+        <?php endif; ?>
       </ul>
     </nav>
   </header>
   <main class="mx-auto max-w-screen-lg space-y-10">
-    <?php require "./views/{$view}.view" ?>
+    <?php if ($message = flash()->get('message')): ?>
+
+      <div class="border-green-800 bg-green-900 text-green-400 px-4 py-1 rounded-md border-2 text-sm font-bold">
+
+        <?= $message ?>
+
+      </div>
+
+    <?php endif; ?>
+    <?php require "../views/{$view}.view.php" ?>
   </main>
 </body>
 
