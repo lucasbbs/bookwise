@@ -30,7 +30,7 @@
 
         <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Tell us what you think!</h1>
 
-        <form class="p-4 space-y-4" method="POST" action="/evaluate">
+        <form class="p-4 space-y-4" method="POST" action="<?= url('evaluate') ?>">
 
           <?php if ($validations = flash()->get('validations')): ?>
 

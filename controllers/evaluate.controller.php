@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
 
-  header("Location: /");
+  header("Location: " . url());
 
   exit();
 }
@@ -24,7 +24,7 @@ $validation = Validation::validate([
 
 if ($validation->fails()) {
 
-  header("Location: /book?id=" . $book_id);
+  header("Location: " . url('book?id=' . $book_id));
 
   exit();
 }
@@ -40,6 +40,6 @@ $database->query(
 
 flash()->push('message', 'Evaluation submitted successfully!');
 
-header("Location: /book?id=" . $book_id);
+header("Location: " . url('book?id=' . $book_id));
 
 exit();

@@ -16,19 +16,19 @@
     <nav class="mx-auto max-w-screen-lg flex justify-between px-8 py-4">
       <div class="font-bold text-xl tracking-wide">Book Wise</div>
       <ul class="flex space-x-4 font-bold">
-        <li><a href="/" class="text-lime-500">Explore</a></li>
+        <li><a href="<?= url() ?>" class=" text-lime-500">Explore</a></li>
         <?php if (auth()): ?>
-          <li><a href="/my-books" class="hover:underline">My Books</a></li>
+          <li><a href="<?= url('my-books') ?>" class="hover:underline">My Books</a></li>
         <?php endif; ?>
       </ul>
       <ul>
         <?php if (auth()): ?>
 
-          <li><a href="/logout">Oi, <?= auth()->name ?></a></li>
+          <li><a href="<?= url('logout') ?>">Oi, <?= auth()->name ?></a></li>
 
         <?php else: ?>
 
-          <li><a href="/login" class="hover:underline">Login</a></li>
+          <li><a href="<?= url('login') ?>" class="hover:underline">Login</a></li>
 
         <?php endif; ?>
       </ul>

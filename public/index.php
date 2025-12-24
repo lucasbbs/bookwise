@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require "../models/Book.php";
 require "../models/User.php";
 require "../models/Vote.php";
@@ -8,7 +10,7 @@ require "../Database.php";
 
 require "../Validation.php";
 
-session_start();
+
 
 require "../Flash.php";
 

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     'password' => ['required']
   ], $_POST);
   if ($validation->fails('login')) {
-    header("Location: /login");
+    header("Location: " . url('login'));
     exit();
   }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       flash()->push('validacoes_login', ['Usuário ou senha estão incorretos!']);
 
-      header('Location: /login');
+      header('Location: ' . url('login'));
 
       exit();
     }
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     flash()->push('message', "Welcome " . $user->name . "!");
 
 
-    header("Location: /");
+    header("Location: " . url());
 
     exit();
   }

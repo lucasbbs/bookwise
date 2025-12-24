@@ -3,7 +3,7 @@
     <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">
       Login
     </h1>
-    <form class="p-4 space-y-4" method="post" action="/login">
+    <form class="p-4 space-y-4" method="post" action="<?= url('login') ?>">
 
       <?php if ($validations = flash()->get('validations_login')): ?>
         <div class="border-red-800 bg-red-900 text-red-400 px-4 py-1 rounded-md border-2 text-sm font-bold">
@@ -34,7 +34,7 @@
     <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">
       Register
     </h1>
-    <form class="p-4 space-y-4" method="post" action="/register">
+    <form class="p-4 space-y-4" method="post" action="<?= url('register') ?>">
 
       <?php if ($validations = flash()->get('validations_register')): ?>
         <div class="border-red-800 bg-red-900 text-red-400 px-4 py-1 rounded-md border-2 text-sm font-bold">

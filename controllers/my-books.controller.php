@@ -2,7 +2,7 @@
 
 if (! auth()) {
 
-  header('Location: /');
+  header('Location: ' . url());
 
   exit();
 }

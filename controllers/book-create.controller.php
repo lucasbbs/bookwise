@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
 
-  header("Location: /my-books");
+  header("Location: " . url("my-books"));
 
   exit();
 }
@@ -33,7 +33,7 @@ $validation = Validation::validate([
 
 if ($validation->fails()) {
 
-  header("Location: /my-books");
+  header("Location: " . url("my-books"));
 
   exit();
 }
@@ -54,6 +54,6 @@ $database->query(
 );
 flash()->push('mensagem', 'Book added successfully!');
 
-header("Location: /my-books");
+header("Location: " . url("my-books"));
 
 exit();

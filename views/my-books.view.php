@@ -17,7 +17,7 @@
         Add a new book
       </h1>
 
-      <form class="p-4 space-y-4" method="POST" action="/book-create" enctype="multipart/form-data">
+      <form class="p-4 space-y-4" method="POST" action="<?= url('book-create') ?>" enctype="multipart/form-data">
 
         <?php if ($validations = flash()->get('validations')): ?>
 

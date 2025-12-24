@@ -1,11 +1,17 @@
 <?php
 
-$controller = str_replace('/', '', parse_url($_SERVER['REQUEST_URI'])['path']);
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
-if (!$controller) $controller = 'index';
+$uriPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '';
+$controller = trim(str_replace($basePath, '', $uriPath), '/');
+
+if ($controller === '' || $controller === 'index' || $controller === 'index.php') {
+    $controller = 'index';
+} elseif (substr($controller, -4) === '.php') {
+    $controller = substr($controller, 0, -4);
+}
 
 if (! file_exists("../controllers/{$controller}.controller.php")) {
-
     abort(404);
 }
 

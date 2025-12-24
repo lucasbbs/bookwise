@@ -56,6 +56,14 @@ function auth()
     return $_SESSION['auth'];
 }
 
+function url($path = '')
+{
+    $base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+    $path = ltrim($path, '/');
+    return $path === '' ? ($base ?: '/') : ($base ? "$base/$path" : "/$path");
+}
+
+
 // Utility for rendering star ratings based on a book array
 function getRating(Book $book)
 {

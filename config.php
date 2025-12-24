@@ -4,15 +4,15 @@ return [
 
     'database' => [
 
-        // 'driver' => 'sqlite',
-        // 'database' => 'database.sqlite'
+        'driver' => 'sqlite',
+        'database' => __DIR__ . '/database.sqlite'
 
-        'driver' => 'mysql',
-        'host' => '127.0.0.1',
-        'port' => 3306,
-        'dbname' => 'bookwise',
-        'user' => 'root',
-        'charset' => 'utf8mb4'
+        // 'driver' => 'mysql',
+        // 'host' => 'localhost',
+        // 'port' => 3306,
+        // 'dbname' => 'r29859fm_admin',
+        // 'user' => 'r29859fm_admin',
+        // 'charset' => 'utf8mb4'
 
     ]
 

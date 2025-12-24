@@ -9,7 +9,7 @@
 
     <div class=" flex flex-col gap-1">
 
-      <a href="/book?id=<?= $book->id ?>" class="font-semibold hover:underline"><?= $book->title ?></a>
+      <a href="<?= url('book?id=' . $book->id) ?>" class="font-semibold hover:underline"><?= $book->title ?></a>
       <div class="text-xs italic"><?= $book->author ?></div>
       <div class="text-xl text-yellow-400"><?= getRating($book) ?></div>
       <span class="text-sm">(<?= $book->number_of_votes ?> Votes)</span>

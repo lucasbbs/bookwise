@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ], $_POST);
 
   if ($validations->fails('register')) {
-    header("Location: /login");
+    header("Location: " . url('login'));
 
     exit();
   }
@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
   ]);
   flash()->push('mensagem', 'Account created successfully, please login.');
-  header('Location: /login');
+  header('Location: ' . url('login'));
   exit();
 }
 
-header('Location: /login');
+header('Location: ' . url('login'));
 exit();
